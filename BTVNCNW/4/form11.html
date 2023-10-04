@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form1</title>
+    <link rel="stylesheet" href="form1.css">
+    <script>
+      function checkLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                alert("Vui lòng nhập tên người dùng và mật khẩu!");
+            } else {
+                alert("Đăng nhập thành công!");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form name="form1" method="" action="" class="login form">
+            <h3 class="login-title">Login</h3>
+            <div class="form-item">
+                <label class="label" for="username">Username</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="form-item">
+                <label class="label" for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="button">
+                <button type="submit" onclick = "checkLogin()">Ok</button  >
+                <button type="submit">Reset</button>
+            </div>
+        </form>
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(141, 230, 255);
+    
+}
+.header_form2{
+    text-align: center;
+    color: red;
+}
+.area{
+    width: 163px;
+}
+.form_group{
+    align-items: center;
+}
+
+.label_text{
+    display: inline-block;
+    width: 75px;
+    padding-left: 450px; 
+   
+}
+
+.button_radio, .check_box{
+    text-align: left; 
+    padding-left: 450px; 
+}
+
+.label_radio, .label_checkbox{
+    width: 90px;
+}
+
+.button_group{
+    text-align: left; 
+    padding-left: 450px; 
+}
+
+div{
+    margin-bottom: 5px;
+   
+}
+div .label_text{
+    margin-top: -10px;
+}
+

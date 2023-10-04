@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Convert to Uppercase</title>
+  <script>
+    function inhoa(event, targetElement) {
+      var keyPressed = event.keyCode || event.which;
+      if (keyPressed === 9) {
+        var inputElement = event.target;
+        var text = inputElement.value;
+        var convertedText = "";
+
+        for (var i = 0; i < text.length; i++) {
+          var charCode = text.charCodeAt(i);
+          if (targetElement === "t2") {
+            if (charCode >= 97 && charCode <= 122) {
+              var uppercaseCharCode = charCode - 32;
+              var uppercaseChar = String.fromCharCode(uppercaseCharCode);
+              convertedText += uppercaseChar;
+            } else if (charCode >= 65 && charCode <= 90) {
+              var lowercaseCharCode = charCode + 32;
+              var lowercaseChar = String.fromCharCode(lowercaseCharCode);
+              convertedText += lowercaseChar;
+            } else {
+              convertedText += text.charAt(i);
+            }
+          } else {
+            if (charCode >= 65 && charCode <= 90) {
+              var lowercaseCharCode = charCode + 32;
+              var lowercaseChar = String.fromCharCode(lowercaseCharCode);
+              convertedText += lowercaseChar;
+            } else if (charCode >= 97 && charCode <= 122) {
+              var uppercaseCharCode = charCode - 32;
+              var uppercaseChar = String.fromCharCode(uppercaseCharCode);
+              convertedText += uppercaseChar;
+            } else {
+              convertedText += text.charAt(i);
+            }
+          }
+        }
+
+        document.f1.t2.value = convertedText;
+      }
+    }
+  </script>
+</head>
+<body onload="document.f1.t1.focus()">
+  <form name="f1" action="">
+    <input type="text" name="t1" onkeydown="inhoa(event, 't2')">
+    <input type="text" name="t2" onkeydown="inhoa(event, 't1')">
+  </form>
+</body>
+</html>
