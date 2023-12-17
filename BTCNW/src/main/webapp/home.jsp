@@ -39,7 +39,7 @@
                     <li> <a href="Login.jsp">Log out</a></li>
                 </ul>
             </div>
-        
+        "hello world"
             <div class="slideshow-container" id="slide-container"></div>
         
             <div class="title-tour">
@@ -60,7 +60,8 @@
                                 <div class="cell-content">
                                     <img src="./images/<%= tourArray.get(i).getImage() %>" alt="img">
                                     <div class="content-tour">
-                                       <a href="detailTourServlet?tourId=<%= tourArray.get(i).getId() %>" style="text-decoration: none; font-family: arial;">  <span class="name-tour"><%= tourArray.get(i).getLocation() %></span></a><br>
+                                        <a href="detailTourServlet?tourId=<%= tourArray.get(i).getId() %>" style="text-decoration: none; font-family: arial;">  <span class="name-tour"><%= tourArray.get(i).getLocation() %></span></a><br>
+                                       
                                         <ul class="detail-tour">
                                          <li><span class="icon">✅</span><span class="text"><%= tourArray.get(i).getDescription() %></span></li>
                                             <li><span class="icon">✅</span><span class="text"><%= tourArray.get(i).getNumber_day() %></span></li>
