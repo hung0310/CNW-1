@@ -1,14 +1,14 @@
-<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.BEAN.Tour"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-VN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Thông Tin</title>
+
 
     <!-- custom css file link -->
     <link rel="stylesheet" type="text/css" href="./View/CSS/style.css">
@@ -28,14 +28,14 @@
                     </span>
                 </h1>                
             </div>
-        
             <div class="list-item">
                 <ul class="item">
+                   <li><a href="" itemid="">Welcome: <%=session.getAttribute("username")%></a></li>
                     <li><a href="" itemid="">TRANG CHỦ</a></li>
                     <li><a href="">TOUR HÀ NỘI</a></li>
                     <li><a href="">TOUR ĐÀ NẴNG</a></li>
                     <li><a href="">TOUR TP.HCM</a></li>
-                    <li><a href="getAllBookingServlet_client">TOUR ĐÃ ĐẶT</a></li>
+                     <li><a href="getAllBookingServlet">TOUR ĐÃ ĐẶT</a></li>
                     <li> <a href="Login.jsp">Log out</a></li>
                 </ul>
             </div>
@@ -45,29 +45,43 @@
             <div class="title-tour">
                 Travel Tour
             </div>
-        
+            <a href="addTour.jsp" style="text-decoration: none;">
+             <button style="padding: 10px 20px; font-size: 30px; display: flex; align-items: center;">
+             <img src="./View/icon/plus.png" alt="Thêm Tour mới" /> Add Tour
+             </button>
+              </a>
             <div class="select-tours">
                 <table class="custom-table">
                     <tr>
                        <%
-                       
-
-                                    ArrayList<Tour> tourArray = (ArrayList<Tour>)request.getAttribute("tourArray");
+                       ArrayList<Tour> tourArray = (ArrayList<Tour>) request.getAttribute("tourArray");
                        				if (tourArray != null) {
                        					for (int i=0; i<tourArray.size(); i++) {
                        %>
-                            <td> 
+                              <td> 
                                 <div class="cell-content">
-                                    <img src="./images/<%= tourArray.get(i).getImage() %>" alt="img">
+                                    <img style="width: 200px; height: 200px; object-fit:" src="./images/<%= tourArray.get(i).getImage() %>" alt="img">
                                     <div class="content-tour">
-                                       <a href="detailTourServlet?tourId=<%= tourArray.get(i).getId() %>" style="text-decoration: none; font-family: arial;">  <span class="name-tour"><%= tourArray.get(i).getLocation() %></span></a><br>
+                                        <span class="name-tour"><%= tourArray.get(i).getLocation() %></span><br>
                                         <ul class="detail-tour">
-                                         <li><span class="icon">✅</span><span class="text"><%= tourArray.get(i).getDescription() %></span></li>
-                                            <li><span class="icon">✅</span><span class="text"><%= tourArray.get(i).getNumber_day() %></span></li>
-                                        	 <li style="padding-left: 50px;">  <button  class="submit-tour">Đặt tour</button></li>
-                                        </ul>
+                                            <li><span class="icon">✅</span><span class="text">Mô tả: <%= tourArray.get(i).getDescription() %></span></li>
+                                            <li><span class="icon">✅</span><span class="text">Hiệu lực: <%= tourArray.get(i).getNumber_day() %></span></li>
+                                             <li><span class="text" style="color:red; font-family: Arial; font-size: 18px;">Giá vé: <%= tourArray.get(i).getPrice() %>/Người</span></li>
+                                             
+                                              </ul>
                                     </div>
-                                  
+								   <div style="display: flex;">
+								  <a href="updateServlet?id=<%=tourArray.get(i).getId() %>" style="text-decoration: none;">
+								    <button class="update-tour">
+								      Update
+								    </button>
+								  </a>
+								  <a href="deleteServlet?id=<%=tourArray.get(i).getId()%>" style="text-decoration: none;">
+								    <button class="delete-tour">
+								      Delete
+								    </button>
+								  </a>
+								</div>
                                 </div>
                             </td>
                     <% 
@@ -78,6 +92,7 @@
                     <% 
                         }
                     %>
+                            
                       
                     </tr>
                 </table>
