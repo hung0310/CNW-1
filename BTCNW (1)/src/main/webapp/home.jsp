@@ -101,7 +101,7 @@ function showBookingForm(location, fullname, phonenumber, email, address) {
 						<%
 						}
 						%>
-
+gggg
 					</tr>
 				</table>
 			</div>
